@@ -100,7 +100,7 @@ am_watchdog_OBJECTS = file_stat.$(OBJEXT) file_table.$(OBJEXT) \
 	sundries.$(OBJEXT) temp.$(OBJEXT) test_binary.$(OBJEXT) \
 	umount.$(OBJEXT) version.$(OBJEXT) watchdog.$(OBJEXT)
 watchdog_OBJECTS = $(am_watchdog_OBJECTS)
-watchdog_LDADD = $(LDADD)
+watchdog_DEPENDENCIES =
 am_wd_identify_OBJECTS = wd_identify.$(OBJEXT)
 wd_identify_OBJECTS = $(am_wd_identify_OBJECTS)
 wd_identify_LDADD = $(LDADD)
@@ -261,6 +261,7 @@ watchdog_SOURCES = file_stat.c file_table.c fstab.c iface.c ifdown.c keep_alive.
 			nfsmount_clnt.c nfsmount_xdr.c pidfile.c shutdown.c sundries.c \
 			temp.c test_binary.c umount.c version.c watchdog.c
 
+watchdog_LDADD = -ltirpc
 wd_keepalive_SOURCES = wd_keepalive.c
 wd_identify_SOURCES = wd_identify.c
 INCLUDES = -I@top_srcdir@/include
